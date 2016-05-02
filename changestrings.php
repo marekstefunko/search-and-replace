@@ -26,20 +26,20 @@ if (!$db_selected) {
 }
 else {
     echo 'Database ' . $database . ' successfully selected!';
-}
 
-$loop = mysqli_query($link,"
-    SELECT
-        concat('UPDATE ',table_schema,'.',table_name, ' SET ',column_name, '=replace(',column_name,', ''{$find}'', ''{$replace}'');') AS s
-    FROM
-        information_schema.columns
-    WHERE
-        table_schema = '{$database}'")
-or die ('Cant loop through dbfields: ' . mysqli_error($link));
+     $loop = mysqli_query($link,"
+     SELECT
+             concat('UPDATE ',table_schema,'.',table_name, ' SET ',column_name, '=replace(',column_name,', ''{$find}'', ''{$replace}'');') AS s
+     FROM
+             information_schema.columns
+     WHERE
+             table_schema = '{$database}'")
+     or die ('Cant loop through dbfields: ' . mysqli_error($link));
 
-while ($query = mysqli_fetch_assoc($loop))
-{
+     while ($query = mysqli_fetch_assoc($loop))
+     {
         mysqli_query($link,$query['s']);
+     }
+     mysqli_close($link);
 }
-mysqli_close($link);
 ?>
