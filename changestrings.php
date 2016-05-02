@@ -6,6 +6,8 @@ $password = ""; // db password
 $database = ""; // dn name
 $port = 3309;   // port number
 
+$find = "";  //insert string to find
+$replace = "";  //insert string to replace
 
 $link = mysqli_connect($hostname, $username, $password, $database, $port);
 
@@ -25,11 +27,6 @@ if (!$db_selected) {
 else {
     echo 'Database ' . $database . ' successfully selected!';
 }
-
-
-
-$find = "";  //insert string to find
-$replace = "";  //insert string to replace
 
 $loop = mysqli_query($link,"
     SELECT
