@@ -1,6 +1,6 @@
 <?php
 // Connect to your MySQL database.
-$hostname = ""; // localhost if on the same server otherwise something like this mysql51.websupport.sk
+$hostname = ""; // localhost if on the same server, otherwise something like this mysql51.websupport.sk
 $username = ""; // db username 
 $password = ""; // db password
 $database = ""; // dn name
